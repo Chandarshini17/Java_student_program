@@ -2,15 +2,32 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 class Student {
-    public String name;
-    public int age;
-    public String grade;
+    private String name;
+    private int age;
+    private String grade;
 
-    Student(String name, int age, String grade) {
+    public Student(String name, int age, String grade) {
         this.name = name;
         this.age = age;
         this.grade = grade;
     }
+    
+    public String getName(){
+        return name;
+    }
+    
+    public int getAge(){
+        return age;
+    }
+    
+    public String getGrade(){
+        return grade;
+    }
+    
+    public String toString() {
+        return "Name: " + name + ", Age: " + age + ", Grade: " + grade;
+    }
+    
 }
 
 
@@ -19,11 +36,9 @@ class Main {
     public static void main(String[] args) {
         List<Student> stu = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
-        
-        System.out.println("Enter student details or 'exit' to quit:");
 
         while (true) {
-            
+            System.out.println("Enter student details or 'exit' to quit:");
             System.out.print("Name: ");
             String name = scanner.nextLine();
 
@@ -37,13 +52,13 @@ class Main {
             System.out.print("Grade: ");
             String grade = scanner.nextLine();
 
-            Student students = new Student(name, age, grade);
-            stu.add(students);
+            stu.add(new Student(name, age, grade));
         }
 
         System.out.println("Student Details:");
-        for (Student students : stu) {
-            System.out.println("Name: " + students.name + ", Age: " + students.age + ", Grade: " + students.grade);
+        for (Student details : stu) {
+            System.out.println(details);
         }
     }
 }
+
